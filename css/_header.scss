@@ -1,0 +1,39 @@
+@import './break_points';
+@import './variables';
+.header {
+    background-image: url('/assets/header.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(166, 27, 38, 0.9);
+    background-blend-mode: multiply;
+    @include flexColumn();
+    gap: 1em;
+    margin: auto;
+    text-align: center;
+    padding: 3em 0;
+    color: var(--white-secondary);
+    &-title {
+        font-size: 14pt;
+        color: whitesmoke;
+    }
+    &-description {
+        font-weight: 400;
+        font-size: xx-large;
+        width: 40%;
+        color: whitesmoke;
+        @media #{$media-tablet} {
+            font-size: x-large;
+            width: min(60%, 100%);
+        }
+        @media #{$media-mobile} {
+            font-size: large;
+            width: min(80%, 100%);
+        }
+    }
+    &-action {
+        @include button();
+        color: var(--white-primary);
+        background-color: var(--black-primary);
+    }
+}

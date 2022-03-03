@@ -1,0 +1,91 @@
+@import './break_points';
+@import './variables';
+.nav {
+    &-menu {
+        width: 100%;
+        display: none;
+        &-open {
+            @include button();
+            background-color: transparent;
+        }
+        &-close {
+            @include button();
+            background-color: transparent;
+            display: none;
+        }
+        @media #{$media-mobile} {
+            @include flexRow();
+        }
+    }
+    &-ul {
+        list-style: none;
+        font-weight: bold;
+        @include flexRow();
+        @media #{$media-mobile} {
+            display: none;
+        }
+        &-li {
+            &-logo {
+                &-ul {
+                    padding: 0.8em 0.3em;
+                    list-style: none;
+                    @include flexRow();
+                    gap: 1em;
+                    &-li {
+                        cursor: pointer;
+                    }
+                }
+            }
+            &-item {
+                &-ul {
+                    padding: 0.8em 0.3em;
+                    list-style: none;
+                    @include flexRow();
+                    gap: 1em;
+                    &-li {
+                        cursor: pointer;
+                        color: var(--black-primary);
+                        &-list {
+                            select {
+                                &:focus {
+                                    border: none;
+                                    outline: none;
+                                }
+                                color: var(--black-primary);
+                                font-weight: bold;
+                                cursor: pointer;
+                                border: none;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-mobile {
+        @include flexColumn();
+        .nav-ul-li {
+            &-logo {
+                @include flexColumn();
+                &-ul {
+                    @include flexColumn();
+                    flex-direction: column !important;
+                }
+            }
+            &-item {
+                &-ul {
+                    @include flexColumn();
+                }
+            }
+        }
+    }
+}
+
+.active {
+    color: var(--red-primary);
+    border-bottom: 2px solid var(--red-primary);
+}
